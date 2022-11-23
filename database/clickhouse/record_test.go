@@ -1,9 +1,9 @@
 package clickhouse
 
 import (
-	"jf-go-kit/config"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 
 	"testing"
 )

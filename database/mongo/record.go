@@ -2,11 +2,12 @@ package mongo
 
 import (
 	"context"
-	"jf-go-kit/config"
 
-	"jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

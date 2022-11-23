@@ -1,9 +1,10 @@
 package tdengine
 
 import (
-	"jf-go-kit/config"
-	"jf-go-kit/table"
 	"testing"
+
+	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/jf-go-kit/table"
 )
 
 func InitTdengine() func() error {

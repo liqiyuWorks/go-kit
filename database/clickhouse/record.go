@@ -1,9 +1,9 @@
 package clickhouse
 
 import (
-	"jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 )
 
 /**

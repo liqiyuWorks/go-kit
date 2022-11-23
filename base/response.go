@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-02 23:02:33
  * @LastEditors: lisheng
  * @Description: 通用json返回模块
- * @FilePath: /jf-go-kit/base/response.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/response.go
  */
 package base
 

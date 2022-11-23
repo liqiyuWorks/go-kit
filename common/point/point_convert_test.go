@@ -2,9 +2,10 @@ package point
 
 import (
 	"fmt"
-	"jf-go-kit/config"
-	"jf-go-kit/database/redis"
 	"testing"
+
+	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/jf-go-kit/database/redis"
 )
 
 func InitPoint() func() error {

@@ -1,6 +1,0 @@
-time="2022-11-18 15:54:49" level=info msg=">>> Connected to Redis" func=jf-go-kit/database/redis.CreateDBEngnine file="redis.go:49"
-time="2022-11-18 15:54:49" level=info msg=">>> Connected to Redis" func=jf-go-kit/database/redis.CreateDBEngnine file="redis.go:49"
-time="2022-11-18 15:54:49" level=info msg=123456 func=jf-go-kit/database/redis.TestStringGet file="redis_string_test.go:19"
-time="2022-11-18 16:50:27" level=info msg=">>> Connected to Redis" func=jf-go-kit/database/redis.CreateDBEngnine file="redis.go:49"
-time="2022-11-18 16:50:27" level=info msg=">>> Connected to Redis" func=jf-go-kit/database/redis.CreateDBEngnine file="redis.go:49"
-time="2022-11-18 16:50:27" level=info msg=123456 func=jf-go-kit/database/redis.TestStringGet file="redis_string_test.go:20"

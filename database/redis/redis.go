@@ -4,19 +4,20 @@
  * @LastEditTime: 2022-11-04 10:30:53
  * @LastEditors: lisheng
  * @Description: Redis驱动
- * @FilePath: /jf-go-kit/database/redis/redis.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/redis/redis.go
  */
 package redis
 
 import (
 	"context"
 	"fmt"
-	"jf-go-kit/config"
 	"time"
 
-	"jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 
 	"github.com/go-redis/redis/v8"
 )

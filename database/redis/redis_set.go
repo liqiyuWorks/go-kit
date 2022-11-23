@@ -4,16 +4,16 @@
  * @LastEditTime: 2022-11-04 10:20:02
  * @LastEditors: lisheng
  * @Description:  redis字符串数据操作
- * @FilePath: /jf-go-kit/database/redis/redis_set.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/redis/redis_set.go
  */
 package redis
 
 import (
 	"context"
 
-	"jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 )
 
 /**

@@ -1,8 +1,9 @@
 package rabbitmq
 
 import (
-	"jf-go-kit/config"
 	"testing"
+
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 )
 
 func InitRecord() func() error {

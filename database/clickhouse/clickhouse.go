@@ -4,20 +4,21 @@
  * @LastEditTime: 2022-11-23 14:20:15
  * @LastEditors: lisheng
  * @Description: clickhouse 驱动
- * @FilePath: /jf-go-kit/database/clickhouse/clickhouse.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/clickhouse/clickhouse.go
  */
 package clickhouse
 
 import (
 	"fmt"
-	"jf-go-kit/config"
 	"log"
 	"os"
 	"time"
 
-	"jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 
 	"gorm.io/driver/clickhouse"
 	"gorm.io/gorm"

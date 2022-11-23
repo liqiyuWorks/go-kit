@@ -1,10 +1,11 @@
 package redis
 
 import (
-	"jf-go-kit/config"
 	"testing"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
+
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 )
 
 func InitHashRds() func() error {

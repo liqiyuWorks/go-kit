@@ -3,7 +3,7 @@ package idw
 import (
 	"testing"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 )
 
 // 功能测试

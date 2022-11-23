@@ -4,20 +4,21 @@
  * @LastEditTime: 2022-11-02 23:35:16
  * @LastEditors: lisheng
  * @Description: mongoDB驱动
- * @FilePath: /jf-go-kit/database/mongo/mongo.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/mongo/mongo.go
  */
 package mongo
 
 import (
 	"context"
 	"fmt"
-	"jf-go-kit/config"
 	"log"
 	"time"
 
-	"jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

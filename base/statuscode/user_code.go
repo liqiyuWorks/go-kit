@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-03 00:48:41
  * @LastEditors: lisheng
  * @Description: 用户模块状态码
- * @FilePath: /jf-go-kit/base/statuscode/user_code.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/statuscode/user_code.go
  */
 
 package statuscode

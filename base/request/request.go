@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-20 12:25:52
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/base/request/request.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/request/request.go
  */
 package request
 
