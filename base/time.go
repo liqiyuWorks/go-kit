@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-01 15:06:15
  * @LastEditors: lisheng
  * @Description: 时间模块
- * @FilePath: /gin-mvc/base/time.go
+ * @FilePath: /jf-go-kit/base/time.go
  */
 package base
 

@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-10-29 11:16:46
  * @LastEditors: lisheng
  * @Description: 文件创建和检测
- * @FilePath: /gin-mvc/base/file.go
+ * @FilePath: /jf-go-kit/base/file.go
  */
 package base
 
