@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-18 15:37:32
  * @LastEditors: lisheng
  * @Description: 表schema
- * @FilePath: /gin-mvc/table/table.go
+ * @FilePath: /jf-go-kit/table/table.go
  */
 package table
 
