@@ -7,7 +7,7 @@ import (
 
 func TestHttpGET(t *testing.T) {
 	resData := make(map[string]interface{}, 0)
-	err := GET("https://api.caiyunapp.com/v2.6/TAkhjf8d1nlSlspN/120.296989,31.892651/realtime", nil, nil, &resData)
+	err := GET("https://api.caiyunapp.com/v2.6/xxxxxx/120.296989,31.892651/realtime", nil, nil, &resData)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -32,8 +32,8 @@ type LoginRes struct {
 
 func TestHttpPOST(t *testing.T) {
 	data := map[string]string{
-		"username": "jiufang",
-		"password": "123456",
+		"username": "xxx",
+		"password": "xxxx",
 	}
 	resData := &LoginRes{}
 
