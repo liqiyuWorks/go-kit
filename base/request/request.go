@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-15 16:32:01
- * @LastEditTime: 2022-11-20 12:25:52
+ * @LastEditTime: 2022-11-24 16:26:40
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/request/request.go
+ * @FilePath: /jf-go-kit/base/request/request.go
  */
 package request
 
@@ -18,27 +18,22 @@ import (
 )
 
 /**
- * @description: 支持任意方式的http请求
- * @param {*} url 请求地址
- * @param {string} method 请求方式
- * @param {*} params 请求地址栏后需要拼接参数操作
- * @param {map[string]string} headers 请求header头设置
- * @param {[]byte} data
- * @return {*} 返回类型 "错误信息"
- * @author: liqiyuWorks
+* @description: GET方式的http请求
+* @param {string} url 请求地址
+* @param {map[string]string} headers 请求header头设置
+* @param {*} params 请求地址栏后需要拼接参数操作
+* @param {interface{}} resDataPtr 需返回绑定数据
+* @return {*} 返回类型 "错误信息"
+* @author: liqiyuWorks
  */
-func HttpDo(url, method string, params, headers map[string]string, data []byte) (interface{}, error) {
-
-	//自定义cient
+func GET(url string, headers, params map[string]string, resDataPtr interface{}) error {
 	client := &http.Client{
 		Timeout: 5 * time.Second, // 超时时间：5秒
 	}
-	//http.post等方法只是在NewRequest上又封装来了一层而已
-	req, err := http.NewRequest(method, url, bytes.NewBuffer(data))
+	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		return nil, errors.New("new request is fail: %v")
+		return errors.New("new request is fail: %v")
 	}
-	req.Header.Set("Content-type", "application/json")
 
 	//add params
 	q := req.URL.Query()
@@ -54,21 +49,61 @@ func HttpDo(url, method string, params, headers map[string]string, data []byte) 
 		req.Header.Add(key, val)
 	}
 
-	resp, err := client.Do(req) //  默认的resp ,err :=  http.DefaultClient.Do(req)
+	resp, err := client.Do(req)
 	if err != nil {
-		return nil, err
+		return err
+	}
+	defer resp.Body.Close()
+
+	body, _ := ioutil.ReadAll(resp.Body)
+	err = json.Unmarshal(body, &resDataPtr)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+/**
+ * @description: POST方式的http请求
+ * @param {string} url 请求链接
+ * @param {map[string]string} headers 请求header头设置
+ * @param {map[string]string} reqDataMap 请求的data map
+ * @param {interface{}} resDataPtr 需返回绑定数据
+ * @return {*} 错误信息
+ * @author: liqiyuWorks
+ */
+func POST(url string, headers map[string]string, reqDataMap map[string]string, resDataPtr interface{}) error {
+	client := &http.Client{
+		Timeout: 5 * time.Second, // 超时时间：5秒
+	}
+	reqData, _ := json.Marshal(reqDataMap)
+
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(reqData))
+	if err != nil {
+		return errors.New("new request is fail: %v")
+	}
+	req.Header.Set("Content-type", "application/json")
+
+	//add headers
+	for key, val := range headers {
+		req.Header.Add(key, val)
+	}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return err
 	}
 	defer resp.Body.Close()
 
 	body, _ := ioutil.ReadAll(resp.Body)
 
-	temp := make(map[string]interface{}, 0)
-
-	err = json.Unmarshal(body, &temp)
+	err = json.Unmarshal(body, &resDataPtr)
 
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	return temp, nil
+	return nil
 }

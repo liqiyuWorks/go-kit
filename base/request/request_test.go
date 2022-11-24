@@ -5,31 +5,41 @@ import (
 	"testing"
 )
 
-func TestHttpDo(t *testing.T) {
-	params := map[string]string{
-		"name": "yuyu",
-	}
-	res, err := HttpDo("https://test.pet-dbc.cn/api/user/info", "GET",
-		params, nil, nil)
+func TestHttpGET(t *testing.T) {
+	resData := make(map[string]interface{}, 0)
+	err := GET("https://api.caiyunapp.com/v2.6/TAkhjf8d1nlSlspN/120.296989,31.892651/realtime", nil, nil, &resData)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(res)
+	fmt.Println(resData)
+}
 
-	//post
-	// herders := map[string]string{}
-	// type Data struct {
-	// 	UserId      int64 `json:"user_id"`
-	// 	OrderStatus int64 `json:"order_status"`
-	// 	PageSizeNum int64 `json:"page_size_num"`
-	// 	Current     int64 `json:"current"`
-	// }
-	// data := Data{16, 0, 10, 1}
-	// body, _ := json.Marshal(data)
-	res, err = HttpDo("https://api.caiyunapp.com/v2.6/TAkhjf8d1nlSlspN/120.296989,31.892651/realtime", "GET",
-		nil, nil, nil)
+type ResBaseModel struct {
+	Code int    `bson:"code" json:"code,omitempty"`
+	Msg  string `bson:"msg" json:"msg,omitempty"`
+}
+
+type LoginData struct {
+	Token    string `json:"token"`
+	Uid      string `json:"uid"`
+	Username string `json:"username"`
+}
+
+type LoginRes struct {
+	ResBaseModel
+	Data LoginData `json:"data"`
+}
+
+func TestHttpPOST(t *testing.T) {
+	data := map[string]string{
+		"username": "jiufang",
+		"password": "123456",
+	}
+	resData := &LoginRes{}
+
+	err := POST("http://121.36.28.59:21630/user/login", nil, data, resData)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(res)
+	fmt.Println(resData.Data.Token)
 }

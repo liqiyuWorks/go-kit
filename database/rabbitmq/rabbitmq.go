@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-15 15:36:07
- * @LastEditTime: 2022-11-20 01:07:08
+ * @LastEditTime: 2022-11-24 16:28:20
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/rabbitmq/rabbitmq.go
+ * @FilePath: /jf-go-kit/database/rabbitmq/rabbitmq.go
  */
 package rabbitmq
 
@@ -64,9 +64,9 @@ func InitRabbitMQClient() func() error {
 		for k, engine := range GRabbitMQManager.EngineMap {
 			err := engine.Close()
 			if err != nil {
-				base.Glog.Errorf("> redisName= %s: %s\n", k, statuscode.ERROR_REDIS_CLOSE.Msg)
+				base.Glog.Errorf("> rabbitmqName= %s: %s\n", k, statuscode.ERROR_REDIS_CLOSE.Msg)
 			} else {
-				fmt.Printf("> redisName= %s close ok!\n", k)
+				fmt.Printf("> rabbitmqName= %s close ok!\n", k)
 			}
 		}
 		return nil
