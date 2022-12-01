@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-10 23:40:57
- * @LastEditTime: 2022-11-23 15:24:04
+ * @LastEditTime: 2022-12-01 09:58:35
  * @LastEditors: lisheng
  * @Description: 路由模块
  * @FilePath: /jf-go-kit/websvr/router.go
@@ -16,8 +16,6 @@ import (
 	"gitee.com/liqiyuworks/jf-go-kit/middleware"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
-
-	"github.com/gin-contrib/pprof"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -39,7 +37,7 @@ var JWT_ROUTE_ARRAY = []string{"/user/login", "/user/register", "/v1/ocean"} // 
 func InitRouter() *gin.Engine {
 	// 初始化路由
 	r := gin.Default()
-	pprof.Register(r) // pprof性能监测
+	// pprof.Register(r) // pprof性能监测
 	// 注册中间件
 	r.Use(middleware.Cors())
 	r.Use(middleware.LoggerToFile())
