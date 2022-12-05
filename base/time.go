@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:18:30
- * @LastEditTime: 2022-11-01 15:06:15
+ * @LastEditTime: 2022-12-05 15:51:38
  * @LastEditors: lisheng
  * @Description: 时间模块
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/time.go
+ * @FilePath: /jf-go-kit/base/time.go
  */
 package base
 
@@ -156,7 +156,7 @@ func GetMonthlyDayCount(year int, month int) int {
  * @return {*}
  * @author: liqiyuWorks
  */
-func GetLastHourToTs(ts int) (lastHour int) {
+func GetLastHourToTs(ts int64) (lastHour int64) {
 	if ts%(60*60*1000) == 0 {
 		lastHour = ts
 		// base.Glog.Infoln("this is the whole hour ")
