@@ -14,7 +14,6 @@ func TestGetDate(t *testing.T) {
 
 func TestGetLastHour(t *testing.T) {
 	var ts int64 = 1667038333000
-	// ts := 1667001600000
 	lastTs := GetLastHourToTs(ts)
 	if lastTs == 0 {
 		t.Errorf("TestGetDate error, lastTs = %v", lastTs)
