@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-13 11:38:11
- * @LastEditTime: 2022-11-23 15:25:06
+ * @LastEditTime: 2022-12-05 14:01:14
  * @LastEditors: lisheng
  * @Description: web服务
  * @FilePath: /jf-go-kit/websvr/server.go
@@ -160,6 +160,5 @@ func (svr *WebServer) CloseDB() {
 		if err := svr.closeDBMap[serverName](); err != nil {
 			base.Glog.Errorf("DB Engine: %s clean error: %v", serverName, err)
 		}
-		base.Glog.Infof("DB Engine: %s clean ok", serverName)
 	}
 }
