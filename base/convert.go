@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:14:13
- * @LastEditTime: 2022-11-01 17:24:24
+ * @LastEditTime: 2022-12-07 16:27:35
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/convert.go
+ * @FilePath: /jf-go-kit/base/convert.go
  */
 package base
 
@@ -167,6 +167,27 @@ func ConvertCamelToCase(name string) string {
 		if unicode.IsUpper(r) {
 			if i != 0 {
 				buffer.Append('_')
+			}
+			buffer.Append(unicode.ToLower(r))
+		} else {
+			buffer.Append(r)
+		}
+	}
+	return buffer.String()
+}
+
+/**
+ * @description: ConvertCamelToSlash
+ * @param {string} name
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func ConvertCamelToSlash(name string) string {
+	buffer := NewBuffer()
+	for i, r := range name {
+		if unicode.IsUpper(r) {
+			if i != 0 {
+				buffer.Append('/')
 			}
 			buffer.Append(unicode.ToLower(r))
 		} else {

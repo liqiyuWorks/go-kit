@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-10 23:40:57
- * @LastEditTime: 2022-12-01 09:58:35
+ * @LastEditTime: 2022-12-07 16:27:45
  * @LastEditors: lisheng
  * @Description: 路由模块
  * @FilePath: /jf-go-kit/websvr/router.go
@@ -60,7 +60,7 @@ func Register(handler interface{}) bool {
 	}
 	base.Glog.Info("module=", module)
 	v := reflect.ValueOf(handler)
-	module = base.ConvertCamelToCase(module)
+	module = base.ConvertCamelToSlash(module)
 	// 遍历方法
 	for i := 0; i < v.NumMethod(); i++ {
 		method := v.Method(i)
