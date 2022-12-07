@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:24:18
- * @LastEditTime: 2022-12-07 10:26:55
+ * @LastEditTime: 2022-12-07 15:32:52
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/common/wind_calc/wind_calc.go
@@ -140,7 +140,13 @@ func (w *wind) WindKnots(speed float64) float64 {
 	return base.Decimal1(knots)
 }
 
-func (w *wind) WindPf(speed float64) int {
+/**
+ * @description: 计算 蒲福风级
+ * @param {float64} speed
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func (w *wind) WindBeaufortWindForceScale(speed float64) int {
 	var scale int = 0
 	if speed <= 0.2 {
 		scale = 0

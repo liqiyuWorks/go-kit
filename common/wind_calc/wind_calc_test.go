@@ -15,6 +15,6 @@ func TestNewWind(t *testing.T) {
 	direction := wind.WindDirection(degree)
 	speed := wind.WindSpeed()
 	knots := wind.WindKnots(speed)
-	pf := wind.WindPf(speed)
+	pf := wind.WindBeaufortWindForceScale(speed)
 	base.Glog.Infof("degree=%f, direction=%s, speed=%f, knots=%f, pf=%d", degree, direction, speed, knots, pf)
 }
