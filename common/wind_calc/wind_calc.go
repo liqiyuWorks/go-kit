@@ -1,3 +1,11 @@
+/*
+ * @Author: lisheng
+ * @Date: 2022-11-23 14:24:18
+ * @LastEditTime: 2022-12-07 10:26:55
+ * @LastEditors: lisheng
+ * @Description:
+ * @FilePath: /jf-go-kit/common/wind_calc/wind_calc.go
+ */
 package windcalc
 
 import (
@@ -28,6 +36,11 @@ func (w *wind) WindSpeed() float64 {
 	return base.Decimal1(value)
 }
 
+/**
+ * @description: 获取风向角度
+ * @return {*}
+ * @author: liqiyuWorks
+ */
 func (w *wind) WindAngle() float64 {
 	angle := 999.9
 	u := w.U10
@@ -54,59 +67,107 @@ func (w *wind) WindAngle() float64 {
 	return base.Decimal2(angle)
 }
 
-func (w *wind) WindDirection() int {
-	angle := w.WindAngle()
-	var direction int = 0
+/**
+ * @description: 根据风向角获取风向
+ * @param {float64} angle
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func (w *wind) WindDirection(angle float64) string {
+	var direction string
 	if angle < 11.25 {
-		direction = 1
+		direction = "N"
 	} else if angle <= 33.75 {
-		direction = 2
+		direction = "NNE"
 
 	} else if angle <= 56.25 {
-		direction = 3
+		direction = "NE"
 
 	} else if angle <= 78.75 {
-		direction = 4
+		direction = "ENE"
 
 	} else if angle <= 101.25 {
-		direction = 5
+		direction = "E"
 
 	} else if angle <= 123.75 {
-		direction = 6
+		direction = "ESE"
 
 	} else if angle <= 146.25 {
-		direction = 7
+		direction = "SE"
 
 	} else if angle <= 168.75 {
-		direction = 8
+		direction = "SSE"
 
 	} else if angle <= 191.25 {
-		direction = 9
+		direction = "S"
 
 	} else if angle <= 213.75 {
-		direction = 10
+		direction = "SSW"
 
 	} else if angle <= 236.25 {
-		direction = 11
+		direction = "SW"
 
 	} else if angle <= 258.75 {
-		direction = 12
+		direction = "WSW"
 
 	} else if angle <= 281.25 {
-		direction = 13
+		direction = "W"
 
 	} else if angle <= 303.75 {
-		direction = 14
+		direction = "WNW"
 
 	} else if angle <= 326.25 {
-		direction = 15
+		direction = "NW"
 
 	} else if angle <= 348.75 {
-		direction = 16
+		direction = "NNW"
 
 	} else {
-		direction = 1
+		direction = "N"
 	}
 
 	return direction
+}
+
+/**
+ * @description: convert speed to knots
+ * @param {float64} speed
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func (w *wind) WindKnots(speed float64) float64 {
+	knots := (speed * 3600) / 1852
+	return base.Decimal1(knots)
+}
+
+func (w *wind) WindPf(speed float64) int {
+	var scale int = 0
+	if speed <= 0.2 {
+		scale = 0
+	} else if speed <= 1.5 {
+		scale = 1
+	} else if speed <= 3.3 {
+		scale = 2
+	} else if speed <= 5.4 {
+		scale = 3
+	} else if speed <= 7.9 {
+		scale = 4
+	} else if speed <= 10.7 {
+		scale = 5
+	} else if speed <= 13.8 {
+		scale = 6
+	} else if speed <= 17.1 {
+		scale = 7
+	} else if speed <= 20.7 {
+		scale = 8
+	} else if speed <= 22.4 {
+		scale = 9
+	} else if speed <= 28.4 {
+		scale = 10
+	} else if speed <= 32.6 {
+		scale = 11
+	} else if speed > 32.6 {
+		scale = 12
+	}
+	return scale
 }
