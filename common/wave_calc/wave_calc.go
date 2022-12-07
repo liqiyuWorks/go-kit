@@ -1,22 +1,26 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:24:18
- * @LastEditTime: 2022-12-07 15:25:41
+ * @LastEditTime: 2022-12-07 15:50:28
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/common/wave_calc/wave_calc.go
  */
 package wavecalc
 
+import "math"
+
 type wave struct {
-	U10 float64
-	V10 float64
+	Degree float64
+	Height float64
+	Period float64
 }
 
-func NewWave(u10, v10 float64) *wave {
+func NewWave(degree, height, period float64) *wave {
 	return &wave{
-		U10: u10,
-		V10: v10,
+		Degree: degree,
+		Height: height,
+		Period: period,
 	}
 }
 
@@ -26,7 +30,8 @@ func NewWave(u10, v10 float64) *wave {
  * @return {*}
  * @author: liqiyuWorks
  */
-func (w *wave) WaveDouglasScale(height float64) string {
+func (w *wave) WaveDouglasScale() string {
+	height := w.Height
 	scale := "Calm"
 	if height <= 0.1 {
 		scale = "Calm"
@@ -48,4 +53,54 @@ func (w *wave) WaveDouglasScale(height float64) string {
 		scale = "Precipitous"
 	}
 	return scale
+}
+
+func convert2Direction(delta float64) string {
+	dire := "N/A"
+	if delta < 0 {
+		delta += 2 * math.Pi
+	}
+	const PI16 = math.Pi / 16
+	if delta < PI16 {
+		// 正b
+		dire = "N"
+	} else if delta >= PI16 && delta < 3*PI16 {
+		dire = "NNE"
+	} else if delta >= 3*PI16 && delta < 5*PI16 {
+		dire = "NE"
+	} else if delta >= 5*PI16 && delta < 7*PI16 {
+		dire = "ENE"
+	} else if delta >= 7*PI16 && delta < 9*PI16 {
+		dire = "E"
+	} else if delta >= 9*PI16 && delta < 11*PI16 {
+		dire = "ESE"
+	} else if delta >= 11*PI16 && delta < 13*PI16 {
+		dire = "SE"
+	} else if delta >= 13*PI16 && delta < 15*PI16 {
+		dire = "SSE"
+	} else if delta >= 15*PI16 && delta < 17*PI16 {
+		dire = "S"
+	} else if delta >= 17*PI16 && delta < 19*PI16 {
+		dire = "SSW"
+	} else if delta >= 19*PI16 && delta < 21*PI16 {
+		dire = "SW"
+	} else if delta >= 21*PI16 && delta < 23*PI16 {
+		dire = "WSW"
+	} else if delta >= 23*PI16 && delta < 25*PI16 {
+		dire = "W"
+	} else if delta >= 25*PI16 && delta < 27*PI16 {
+		dire = "WNW"
+	} else if delta >= 27*PI16 && delta < 29*PI16 {
+		dire = "NW"
+	} else if delta >= 29*PI16 && delta < 31*PI16 {
+		dire = "NNW"
+	} else if delta >= 31*PI16 && delta < 32*PI16 {
+		dire = "N"
+	}
+	return dire
+}
+
+func (w *wave) WaveDirection() string {
+	direction := convert2Direction((w.Degree / 360) * 2 * math.Pi)
+	return direction
 }

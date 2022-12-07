@@ -8,10 +8,12 @@ import (
 
 // 功能测试
 func TestNewWave(t *testing.T) {
-	u := -0.21
-	v := -0.15
-	height := 0.3
-	wave := NewWave(u, v)
-	douglasScale := wave.WaveDouglasScale(height)
-	base.Glog.Infof("douglasScale=%s", douglasScale)
+	// seawavedirection:340.72 seawaveheight:1.66 seawaveperiod:6.13
+	degree := 340.72
+	height := 1.66
+	period := 6.13
+	wave := NewWave(degree, height, period)
+	direction := wave.WaveDirection()
+	douglasScale := wave.WaveDouglasScale()
+	base.Glog.Infof("douglasScale=%s, direction=%s", douglasScale, direction,)
 }
