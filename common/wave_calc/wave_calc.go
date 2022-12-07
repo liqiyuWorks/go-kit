@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:24:18
- * @LastEditTime: 2022-12-07 15:50:28
+ * @LastEditTime: 2022-12-07 15:55:33
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/common/wave_calc/wave_calc.go
@@ -55,6 +55,12 @@ func (w *wave) WaveDouglasScale() string {
 	return scale
 }
 
+/**
+ * @description: convert2Direction
+ * @param {float64} delta
+ * @return {*}
+ * @author: liqiyuWorks
+ */
 func convert2Direction(delta float64) string {
 	dire := "N/A"
 	if delta < 0 {
@@ -100,6 +106,11 @@ func convert2Direction(delta float64) string {
 	return dire
 }
 
+/**
+ * @description: calc WaveDirection
+ * @return {*}
+ * @author: liqiyuWorks
+ */
 func (w *wave) WaveDirection() string {
 	direction := convert2Direction((w.Degree / 360) * 2 * math.Pi)
 	return direction
