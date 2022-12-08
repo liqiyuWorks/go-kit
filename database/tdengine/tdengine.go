@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-13 14:12:44
- * @LastEditTime: 2022-11-04 23:09:02
+ * @LastEditTime: 2022-12-08 14:07:08
  * @LastEditors: lisheng
  * @Description: Tdengine驱动
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/tdengine/tdengine.go
+ * @FilePath: /jf-go-kit/database/tdengine/tdengine.go
  */
 package tdengine
 
@@ -40,6 +40,8 @@ func CreateDBEngnine(user, pwd, addr string, port int) *zorm.DBDao {
 		DriverName: "taosRestful",
 		//数据库方言:mysql,postgresql,oracle,mssql,sqlite,clickhouse,dm,kingbase,shentong 和 DriverName 对应,处理数据库有多个驱动
 		Dialect: "tdengine",
+		//SlowSQLMillis 慢sql的时间阈值,单位毫秒.小于0是禁用SQL语句输出
+		SlowSQLMillis: -1,
 		//MaxOpenConns 数据库最大连接数 默认50
 		MaxOpenConns: 10,
 		//MaxIdleConns 数据库最大空闲连接数 默认50
