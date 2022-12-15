@@ -26,10 +26,9 @@ type PointIndex struct {
  * @author: liqiyuWorks
  */
 func ConverMfwamPointToIndex(lonPoints, latPoints []string, lon float64, lat float64) ([]int, []int, error) {
-	newLonPoints := []float64{}
-	newLatPoints := []float64{}
+	newLonPoints, newLatPoints := []float64{}, []float64{}
 	for i := range lonPoints {
-		newLonPoints = append(newLonPoints, base.Decimal2(base.ConvertToFloat64(lonPoints[i], 0)))
+		newLonPoints = append(newLonPoints, base.ConvertToFloat64(lonPoints[i], 0))
 	}
 	for i := range latPoints {
 		newLatPoints = append(newLatPoints, base.ConvertToFloat64(latPoints[i], 0))
@@ -53,10 +52,9 @@ func ConverMfwamPointToIndex(lonPoints, latPoints []string, lon float64, lat flo
  * @author: liqiyuWorks
  */
 func ConverGfsPointToIndex(lonPoints, latPoints []string, lon float64, lat float64) ([]int, []int, error) {
-	newLonPoints := []float64{}
-	newLatPoints := []float64{}
+	newLonPoints, newLatPoints := []float64{}, []float64{}
 	for i := range lonPoints {
-		newLonPoints = append(newLonPoints, base.Decimal2(base.ConvertToFloat64(lonPoints[i], 0)))
+		newLonPoints = append(newLonPoints, base.ConvertToFloat64(lonPoints[i], 0))
 	}
 	for i := range latPoints {
 		newLatPoints = append(newLatPoints, base.ConvertToFloat64(latPoints[i], 0))

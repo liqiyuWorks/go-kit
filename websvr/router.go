@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-10 23:40:57
- * @LastEditTime: 2022-12-07 16:27:45
+ * @LastEditTime: 2022-12-15 15:43:21
  * @LastEditors: lisheng
  * @Description: 路由模块
  * @FilePath: /jf-go-kit/websvr/router.go
@@ -32,7 +32,7 @@ type Route struct {
 // 路由集合
 var Routes = []Route{}
 
-var JWT_ROUTE_ARRAY = []string{"/user/login", "/user/register", "/v1/ocean"} // 不进行JWT认证的路由
+var JWT_ROUTE_ARRAY = []string{"/user/login", "/user/register"} // 不进行JWT认证的路由
 
 func InitRouter() *gin.Engine {
 	// 初始化路由
@@ -44,7 +44,6 @@ func InitRouter() *gin.Engine {
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "ping ok")
 	})
-
 	Bind(r)
 
 	return r
@@ -53,7 +52,6 @@ func InitRouter() *gin.Engine {
 // 注册控制器
 func Register(handler interface{}) bool {
 	ctrlName := reflect.TypeOf(handler).String()
-	// base.Glog.Infoln("> ctrlName=", ctrlName)
 	module := ctrlName
 	if strings.Contains(ctrlName, ".") {
 		module = ctrlName[strings.Index(ctrlName, ".")+1:]
@@ -71,20 +69,15 @@ func Register(handler interface{}) bool {
 		params := make([]reflect.Type, 0, v.NumMethod())
 		for j := 0; j < method.Type().NumIn(); j++ {
 			params = append(params, method.Type().In(j))
-			// base.Glog.Infoln("params-name=", method.Type().In(j))
 		}
-		// base.Glog.Infoln("params=", params)
-		// fmt.Printf(">> action = %s -> case_action = %s \n", action, case_action)
 		path := "/" + module + "/" + case_action
 		route := Route{path: path, method: method, args: params}
 		Routes = append(Routes, route)
 	}
-	// base.Glog.Infoln("Routes=", Routes)
 	return true
 }
 
 // 绑定路由 m是方法GET POST等
-// 绑定基本路由 e.POST(path, match(path))
 func Bind(e *gin.Engine) {
 	e.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler)) // 注册 swagger
 	for _, route := range Routes {

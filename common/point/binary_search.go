@@ -26,10 +26,6 @@ func BinarySearch(dataSet []float64, findNum float64, midIndex int, lOrRight str
 		if findNum < dataSet[len(dataSet)-1] {
 			return indexList, errors.New("查找值超出阈值")
 		}
-
-		if findNum < dataSet[0] {
-			return indexList, errors.New("查找值超出阈值")
-		}
 	}
 
 	if len(dataSet) > 1 {

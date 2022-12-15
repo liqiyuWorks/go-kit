@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:18:30
- * @LastEditTime: 2022-12-15 14:17:17
+ * @LastEditTime: 2022-12-15 15:42:37
  * @LastEditors: lisheng
  * @Description: 时间模块
  * @FilePath: /jf-go-kit/base/time.go
@@ -159,10 +159,8 @@ func GetMonthlyDayCount(year int, month int) int {
 func GetLastHourToTs(ts int64) (lastHour int64) {
 	if ts%(60*60*1000) == 0 {
 		lastHour = ts
-		// base.Glog.Infoln("this is the whole hour ")
 	} else {
 		lastHour = (ts / (60 * 60 * 1000)) * 60 * 60 * 1000
-		// base.Glog.Infoln("this is not the whole hour , t", lastHour)
 	}
 	return lastHour
 }
@@ -177,10 +175,8 @@ func GetLastHourToTs(ts int64) (lastHour int64) {
 func GetSpecifiedNumToTs(ts int64, hour int64) (SpecifiedHour int64) {
 	if ts%(hour*60*60*1000) == 0 {
 		SpecifiedHour = ts
-		// base.Glog.Infoln("this is the whole hour ")
 	} else {
 		SpecifiedHour = (ts / (hour * 60 * 60 * 1000)) * hour * 60 * 60 * 1000
-		// base.Glog.Infoln("this is not the whole hour , t", lastHour)
 	}
 	return SpecifiedHour
 }
