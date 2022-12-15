@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:14:13
- * @LastEditTime: 2022-12-15 15:16:22
+ * @LastEditTime: 2022-12-15 15:19:02
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
  * @FilePath: /jf-go-kit/base/convert.go
@@ -211,12 +211,12 @@ func ConvertCaseToCamel(name string) string {
 }
 
 /**
- * @description: ConvertStringTobyte
+ * @description: ConvertStringToByte
  * @param {string} s
  * @return {*}
  * @author: liqiyuWorks
  */
-func ConvertStringTobyte(s string) []byte {
+func ConvertStringToByte(s string) []byte {
 	tmp1 := (*[2]uintptr)(unsafe.Pointer(&s))
 	tmp2 := [3]uintptr{tmp1[0], tmp1[1], tmp1[1]}
 	return *(*[]byte)(unsafe.Pointer(&tmp2))
