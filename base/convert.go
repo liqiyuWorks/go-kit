@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:14:13
- * @LastEditTime: 2022-12-07 16:27:35
+ * @LastEditTime: 2022-12-15 15:16:22
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
  * @FilePath: /jf-go-kit/base/convert.go
@@ -15,6 +15,7 @@ import (
 	"strconv"
 	"strings"
 	"unicode"
+	"unsafe"
 )
 
 var i64Type reflect.Type
@@ -207,4 +208,28 @@ func ConvertCaseToCamel(name string) string {
 	name = strings.Replace(name, "_", " ", -1)
 	name = strings.Title(name)
 	return strings.Replace(name, " ", "", -1)
+}
+
+/**
+ * @description: ConvertStringTobyte
+ * @param {string} s
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func ConvertStringTobyte(s string) []byte {
+	tmp1 := (*[2]uintptr)(unsafe.Pointer(&s))
+	tmp2 := [3]uintptr{tmp1[0], tmp1[1], tmp1[1]}
+	return *(*[]byte)(unsafe.Pointer(&tmp2))
+
+}
+
+/**
+ * @description: ConvertByteToString
+ * @param {[]byte} bytes
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func ConvertByteToString(bytes []byte) string {
+	return *(*string)(unsafe.Pointer(&bytes))
+
 }
