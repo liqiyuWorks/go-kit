@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:18:30
- * @LastEditTime: 2022-12-05 15:51:38
+ * @LastEditTime: 2022-12-15 14:17:17
  * @LastEditors: lisheng
  * @Description: 时间模块
  * @FilePath: /jf-go-kit/base/time.go
@@ -165,4 +165,22 @@ func GetLastHourToTs(ts int64) (lastHour int64) {
 		// base.Glog.Infoln("this is not the whole hour , t", lastHour)
 	}
 	return lastHour
+}
+
+/**
+ * @description: 计算最接近n个小时的时间戳
+ * @param {int64} ts
+ * @param {int64} hour
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func GetSpecifiedNumToTs(ts int64, hour int64) (SpecifiedHour int64) {
+	if ts%(hour*60*60*1000) == 0 {
+		SpecifiedHour = ts
+		// base.Glog.Infoln("this is the whole hour ")
+	} else {
+		SpecifiedHour = (ts / (hour * 60 * 60 * 1000)) * hour * 60 * 60 * 1000
+		// base.Glog.Infoln("this is not the whole hour , t", lastHour)
+	}
+	return SpecifiedHour
 }
