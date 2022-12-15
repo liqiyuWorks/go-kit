@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-13 11:38:11
- * @LastEditTime: 2022-12-05 14:01:14
+ * @LastEditTime: 2022-12-15 11:29:34
  * @LastEditors: lisheng
  * @Description: web服务
  * @FilePath: /jf-go-kit/websvr/server.go
@@ -32,23 +32,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var (
-	ResiPoints = &NewResiPoints{} // 常驻内存
-)
-
 type CloseDBFunc func() error
 type WebServer struct {
 	g          *gin.Engine
 	server     *http.Server
 	signalStop chan os.Signal
 	closeDBMap map[string]CloseDBFunc
-}
-
-type NewResiPoints struct {
-	MfwamLonsMap map[string][]string
-	MfwamLatsMap map[string][]string
-	SmocLonsMap  map[string][]string
-	SmocLatsMap  map[string][]string
 }
 
 /**
@@ -109,31 +98,6 @@ func (svr *WebServer) Run() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	svr.clean(ctx)
-}
-
-/**
- * @description: 初始化常驻内存
- * @return {*}
- * @author: liqiyuWorks
- */
-func (svr *WebServer) InitResidentMemory() {
-	var err error
-	ResiPoints.MfwamLonsMap, err = redis.SetZange("points", "base_data:mfwam:lons", 0, -1)
-	if err != nil {
-		base.Glog.Errorf("init state mfwam lons points failed, err=%v", err)
-	}
-	ResiPoints.MfwamLatsMap, err = redis.SetZange("points", "base_data:mfwam:lats", 0, -1)
-	if err != nil {
-		base.Glog.Errorf("init state mfwam lats points failed, err=%v", err)
-	}
-	ResiPoints.SmocLonsMap, err = redis.SetZange("points", "base_data:smoc:lons", 0, -1)
-	if err != nil {
-		base.Glog.Errorf("init state smoc lons points failed, err=%v", err)
-	}
-	ResiPoints.SmocLatsMap, err = redis.SetZange("points", "base_data:smoc:lats", 0, -1)
-	if err != nil {
-		base.Glog.Errorf("init state smoc lats points failed, err=%v", err)
-	}
 }
 
 /**
