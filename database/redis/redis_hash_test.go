@@ -15,11 +15,8 @@ func InitHashRds() func() error {
 
 func TestHashGetMap(t *testing.T) {
 	defer InitHashRds()()
-	key := "liqiyu"
-	field := "lisheng"
-	value, err := HashGetFields("", key, field)
+	key := "gfs|547|280"
+	field := "2021080400"
+	value, _ := HashGetFields("", key, field)
 	base.Glog.Infoln("value =", value)
-	if err != nil {
-		t.Errorf("data = %v", value)
-	}
 }

@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"github.com/go-redis/redis/v8"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 )
@@ -58,11 +59,13 @@ func HashGetFields(engineName string, key, field string) (string, error) {
 		engineName = "default"
 	}
 	data, err := GRdsManager.EngineMap[engineName].HGet(context.Background(), key, field).Result()
+	if (err.Error()) == redis.Nil.Error() {
+		return data, nil
+	}
 	if err != nil {
 		base.Glog.Errorf("> %s : %v", statuscode.ERROR_REDIS_HASH_GET_FIELDS.Msg, err.Error())
 	}
 	return data, err
-
 }
 
 /**
