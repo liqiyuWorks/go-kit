@@ -1,6 +1,7 @@
 package base
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -13,9 +14,6 @@ func TestGetDate(t *testing.T) {
 }
 
 func TestGetLastHour(t *testing.T) {
-	var ts int64 = 1667038333000
-	lastTs := GetLastHourToTs(ts)
-	if lastTs == 0 {
-		t.Errorf("TestGetDate error, lastTs = %v", lastTs)
-	}
+	var ts int64 = 1671264300000
+	fmt.Println(GetSpecifiedNumToTs(ts, 3))
 }

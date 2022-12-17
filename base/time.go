@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:18:30
- * @LastEditTime: 2022-12-15 15:42:37
+ * @LastEditTime: 2022-12-17 16:59:09
  * @LastEditors: lisheng
  * @Description: 时间模块
  * @FilePath: /jf-go-kit/base/time.go
@@ -166,17 +166,24 @@ func GetLastHourToTs(ts int64) (lastHour int64) {
 }
 
 /**
- * @description: 计算最接近n个小时的时间戳
+ * @description: 计算最接近n个小时的时间戳, 前后匹配，找到最接近的n小时的时刻
  * @param {int64} ts
  * @param {int64} hour
  * @return {*}
  * @author: liqiyuWorks
  */
 func GetSpecifiedNumToTs(ts int64, hour int64) (SpecifiedHour int64) {
+	diffN := ts % (hour * 60 * 60 * 1000)
 	if ts%(hour*60*60*1000) == 0 {
 		SpecifiedHour = ts
 	} else {
-		SpecifiedHour = (ts / (hour * 60 * 60 * 1000)) * hour * 60 * 60 * 1000
+		if diffN > (hour * 3600 * 1000 / 2) {
+			SpecifiedHour = (ts/(hour*3600*1000))*hour*3600*1000 + hour*3600*1000
+			// fmt.Println("=>贴近后者, ts: ", SpecifiedHour)
+		} else {
+			SpecifiedHour = (ts / (hour * 3600 * 1000)) * hour * 3600 * 1000
+			// fmt.Println("=>贴近前者, ts: ", SpecifiedHour)
+		}
 	}
 	return SpecifiedHour
 }
