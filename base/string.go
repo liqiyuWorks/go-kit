@@ -1,3 +1,11 @@
+/*
+ * @Author: lisheng
+ * @Date: 2022-10-29 11:21:17
+ * @LastEditTime: 2022-12-23 17:30:20
+ * @LastEditors: lisheng
+ * @Description:
+ * @FilePath: /jf-go-kit/base/string.go
+ */
 package base
 
 import (
@@ -83,5 +91,22 @@ func StringSub(str string, n int, reverse bool) string {
 		return string([]byte(str)[:n])
 	} else {
 		return string([]rune(str)[:len([]rune(str))-n])
+	}
+}
+
+/**
+ * @description: StringSubA2B
+ * @param {string} str
+ * @param {int} a
+ * @param {int} b
+ * @param {bool} reverse fasle:正序 true 逆序
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func StringSubA2B(str string, a int, b int, reverse bool) string {
+	if !reverse {
+		return string([]byte(str)[a:b])
+	} else {
+		return string([]rune(str)[len([]rune(str))-b : len([]rune(str))-a])
 	}
 }
