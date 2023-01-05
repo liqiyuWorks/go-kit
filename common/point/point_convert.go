@@ -12,8 +12,10 @@ type Point struct {
 }
 
 type PointIndex struct {
-	Ilon int `json:"lon,omitempty"`
-	Ilat int `json:"lat,omitempty"`
+	LonIndex int     `json:"lonIndex,omitempty"`
+	LatIndex int     `json:"latIndex,omitempty"`
+	Lon      float64 `json:"lon,omitempty"`
+	Lat      float64 `json:"lat,omitempty"`
 }
 
 /**
