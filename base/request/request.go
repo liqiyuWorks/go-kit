@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-15 16:32:01
- * @LastEditTime: 2022-11-24 16:26:40
+ * @LastEditTime: 2023-01-06 11:20:29
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/base/request/request.go
@@ -116,13 +116,15 @@ func GETStatusCode(url string) int {
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 		},
 	}
-	req, _ := http.NewRequest("GET", url, nil)
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return 500
+	}
 
 	resp, err := client.Do(req)
 	if err != nil {
 		return 500
 	}
-	defer resp.Body.Close()
 
 	return resp.StatusCode
 }
