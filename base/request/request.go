@@ -10,6 +10,7 @@ package request
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"io/ioutil"
@@ -106,4 +107,22 @@ func POST(url string, headers map[string]string, reqDataMap map[string]string, r
 	}
 
 	return nil
+}
+
+func GETStatusCode(url string) int {
+	client := &http.Client{
+		Timeout: 5 * time.Second, // 超时时间：5秒
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		},
+	}
+	req, _ := http.NewRequest("GET", url, nil)
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return 500
+	}
+	defer resp.Body.Close()
+
+	return resp.StatusCode
 }
