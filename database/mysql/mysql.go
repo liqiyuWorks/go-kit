@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-10 23:46:08
- * @LastEditTime: 2022-11-04 23:08:46
+ * @LastEditTime: 2023-01-06 14:16:09
  * @LastEditors: lisheng
  * @Description: mysql驱动管理，支持管理多个Mysql数据库连接
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/mysql/mysql.go
+ * @FilePath: /jf-go-kit/database/mysql/mysql.go
  */
 package mysql
 
@@ -16,7 +16,7 @@ import (
 
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 

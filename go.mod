@@ -5,7 +5,6 @@ go 1.18
 require (
 	gitee.com/chunanyong/zorm v1.6.3
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
-	github.com/gin-contrib/pprof v1.4.0
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/hatlonely/go-kit v1.1.5

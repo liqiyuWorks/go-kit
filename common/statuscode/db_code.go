@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-28 17:23:34
- * @LastEditTime: 2022-11-03 00:40:43
+ * @LastEditTime: 2023-01-06 14:17:30
  * @LastEditors: lisheng
  * @Description: 错误信息之 数据库相关
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/statuscode/db_code.go
+ * @FilePath: /jf-go-kit/common/statuscode/db_code.go
  */
 package statuscode
 

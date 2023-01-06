@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-15 15:36:07
- * @LastEditTime: 2022-11-24 16:28:20
+ * @LastEditTime: 2023-01-06 14:16:15
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/database/rabbitmq/rabbitmq.go
@@ -13,7 +13,7 @@ import (
 
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 

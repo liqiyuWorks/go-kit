@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-14 16:28:38
- * @LastEditTime: 2022-11-02 23:35:16
+ * @LastEditTime: 2023-01-06 14:14:58
  * @LastEditors: lisheng
  * @Description: mongoDB驱动
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/mongo/mongo.go
+ * @FilePath: /jf-go-kit/database/mongo/mongo.go
  */
 package mongo
 
@@ -16,7 +16,7 @@ import (
 
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 

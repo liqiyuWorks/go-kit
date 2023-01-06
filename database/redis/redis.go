@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-12 17:57:22
- * @LastEditTime: 2022-11-04 10:30:53
+ * @LastEditTime: 2023-01-06 14:16:24
  * @LastEditors: lisheng
  * @Description: Redis驱动
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/redis/redis.go
+ * @FilePath: /jf-go-kit/database/redis/redis.go
  */
 package redis
 
@@ -15,7 +15,7 @@ import (
 
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 

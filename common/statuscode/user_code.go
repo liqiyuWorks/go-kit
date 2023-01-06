@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-20 11:04:47
- * @LastEditTime: 2022-11-03 00:48:41
+ * @LastEditTime: 2023-01-06 14:17:39
  * @LastEditors: lisheng
  * @Description: 用户模块状态码
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/statuscode/user_code.go
+ * @FilePath: /jf-go-kit/common/statuscode/user_code.go
  */
 
 package statuscode

@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-13 09:39:39
- * @LastEditTime: 2022-11-23 14:20:15
+ * @LastEditTime: 2023-01-06 14:13:33
  * @LastEditors: lisheng
  * @Description: clickhouse 驱动
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/clickhouse/clickhouse.go
+ * @FilePath: /jf-go-kit/database/clickhouse/clickhouse.go
  */
 package clickhouse
 
@@ -16,7 +16,7 @@ import (
 
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 

@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-13 14:12:44
- * @LastEditTime: 2022-12-08 14:07:08
+ * @LastEditTime: 2023-01-06 14:16:28
  * @LastEditors: lisheng
  * @Description: Tdengine驱动
  * @FilePath: /jf-go-kit/database/tdengine/tdengine.go
@@ -14,7 +14,7 @@ import (
 
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 

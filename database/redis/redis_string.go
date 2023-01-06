@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-25 15:11:22
- * @LastEditTime: 2022-11-04 10:19:44
+ * @LastEditTime: 2023-01-06 14:17:22
  * @LastEditors: lisheng
  * @Description:  redis字符串数据操作
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/redis/redis_string.go
+ * @FilePath: /jf-go-kit/database/redis/redis_string.go
  */
 package redis
 
@@ -12,7 +12,7 @@ import (
 	"context"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 )

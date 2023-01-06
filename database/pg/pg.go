@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-18 15:04:49
- * @LastEditTime: 2022-11-04 10:39:29
+ * @LastEditTime: 2023-01-06 14:16:12
  * @LastEditors: lisheng
  * @Description: PostareSQL驱动
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/pg/pg.go
+ * @FilePath: /jf-go-kit/database/pg/pg.go
  */
 package pg
 
@@ -16,7 +16,7 @@ import (
 
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
 
