@@ -8,15 +8,15 @@ import (
 
 // 功能测试
 func TestNewCurrent(t *testing.T) {
-	u := -0.21
-	v := -0.15
+	u := 0.4404
+	v := 0.1136
 	azimuth := 20
 
 	wind := NewCurrent(u, v)
-	degree := wind.CurrentAngle()
-	direction := wind.CurrentDirection(degree)
+	angle := wind.CurrentAngle()
+	direction := wind.CurrentDirection(angle)
 	speed := wind.CurrentSpeed()
 	knots := wind.CurrentKnots(speed)
-	factor := wind.CurrentFactor(azimuth, speed, degree)
-	base.Glog.Infof("degree=%f, direction=%s, speed=%f, knots=%f, factor=%f", degree, direction, speed, knots, factor)
+	factor := wind.CurrentFactor(azimuth, knots, angle)
+	base.Glog.Infof("angle=%f, direction=%s, speed=%f, knots=%f, factor=%f", angle, direction, speed, knots, factor)
 }

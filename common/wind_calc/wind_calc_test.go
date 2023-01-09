@@ -8,8 +8,8 @@ import (
 
 // 功能测试
 func TestNewWind(t *testing.T) {
-	u := -0.21
-	v := -0.15
+	u := -4.6951
+	v := -0.1984
 	wind := NewWind(u, v)
 	degree := wind.WindAngle()
 	direction := wind.WindDirection(degree)

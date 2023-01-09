@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:24:18
- * @LastEditTime: 2023-01-09 12:36:03
+ * @LastEditTime: 2023-01-09 13:00:56
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/common/current_calc/current_calc.go
@@ -27,7 +27,7 @@ func NewCurrent(u10, v10 float64) *wind {
 }
 
 /**
- * @description: 计算风速
+ * @description: 计算流速
  * @return {*}
  * @author: liqiyuWorks
  */
@@ -37,7 +37,7 @@ func (w *wind) CurrentSpeed() float64 {
 }
 
 /**
- * @description: 获取风向角度
+ * @description: 获取流角度
  * @return {*}
  * @author: liqiyuWorks
  */
@@ -45,30 +45,14 @@ func (w *wind) CurrentAngle() float64 {
 	angle := 999.9
 	u := w.U10
 	v := w.V10
-	if u > 0 && v > 0 {
-		angle = 270 - math.Atan(v/u)*180/math.Pi
-	} else if u < 0 && 0 < v {
-		angle = 90 - math.Atan(v/u)*180/math.Pi
-	} else if u < 0 && v < 0 {
-		angle = 90 - math.Atan(v/u)*180/math.Pi
-	} else if u > 0 && 0 > v {
-		angle = 270 - math.Atan(v/u)*180/math.Pi
-	} else if u == 0 && v > 0 {
-		angle = 180
-	} else if u == 0 && v < 0 {
-		angle = 0
-	} else if u > 0 && v == 0 {
-		angle = 270
-	} else if u < 0 && v == 0 {
-		angle = 90
-	} else if u == 0 && v == 0 {
-		angle = 999.9
-	}
+	angle = math.Atan2(u, v)
+	angle = (angle / (2 * math.Pi) * 360)
+
 	return base.Decimal2(angle)
 }
 
 /**
- * @description: 根据风向角获取风向
+ * @description: 获取流向
  * @param {float64} angle
  * @return {*}
  * @author: liqiyuWorks
@@ -140,7 +124,7 @@ func (w *wind) CurrentKnots(speed float64) float64 {
 	return base.Decimal2(knots)
 }
 
-func (w *wind) CurrentFactor(azimuth int, speed, angle float64) float64 {
+func (w *wind) CurrentFactor(azimuth int, knots, angle float64) float64 {
 	var theta float64
 	var factor float64
 	if azimuth != 0 {
@@ -151,7 +135,7 @@ func (w *wind) CurrentFactor(azimuth int, speed, angle float64) float64 {
 	if theta == math.Pi/2 || theta == -math.Pi/2 {
 		factor = 0
 	} else {
-		factor = speed * math.Cos(theta)
+		factor = knots * math.Cos(theta)
 	}
 	return base.Decimal2(factor)
 }
