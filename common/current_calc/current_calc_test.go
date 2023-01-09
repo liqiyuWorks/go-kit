@@ -12,11 +12,11 @@ func TestNewCurrent(t *testing.T) {
 	v := 0.1136
 	azimuth := 20
 
-	wind := NewCurrent(u, v)
-	angle := wind.CurrentAngle()
-	direction := wind.CurrentDirection(angle)
-	speed := wind.CurrentSpeed()
-	knots := wind.CurrentKnots(speed)
-	factor := wind.CurrentFactor(azimuth, knots, angle)
+	current := NewCurrent(u, v)
+	angle := current.CurrentAngle()
+	direction := current.CurrentDirection(angle)
+	speed := current.CurrentSpeed()
+	knots := current.CurrentKnots(speed)
+	factor := current.CurrentFactor(azimuth, knots, angle)
 	base.Glog.Infof("angle=%f, direction=%s, speed=%f, knots=%f, factor=%f", angle, direction, speed, knots, factor)
 }
