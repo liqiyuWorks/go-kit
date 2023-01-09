@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:24:18
- * @LastEditTime: 2023-01-09 12:20:53
+ * @LastEditTime: 2023-01-09 12:36:03
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/common/current_calc/current_calc.go
@@ -33,7 +33,7 @@ func NewCurrent(u10, v10 float64) *wind {
  */
 func (w *wind) CurrentSpeed() float64 {
 	value := math.Pow(math.Pow(w.U10, 2)+math.Pow(w.V10, 2), 0.5)
-	return base.Decimal1(value)
+	return base.Decimal2(value)
 }
 
 /**
@@ -137,7 +137,7 @@ func (w *wind) CurrentDirection(angle float64) string {
  */
 func (w *wind) CurrentKnots(speed float64) float64 {
 	knots := (speed * 3600) / 1852
-	return base.Decimal1(knots)
+	return base.Decimal2(knots)
 }
 
 func (w *wind) CurrentFactor(azimuth int, speed, angle float64) float64 {
@@ -153,5 +153,5 @@ func (w *wind) CurrentFactor(azimuth int, speed, angle float64) float64 {
 	} else {
 		factor = speed * math.Cos(theta)
 	}
-	return base.Decimal1(factor)
+	return base.Decimal2(factor)
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:24:18
- * @LastEditTime: 2022-12-07 15:32:52
+ * @LastEditTime: 2023-01-09 12:37:10
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/common/wind_calc/wind_calc.go
@@ -33,7 +33,7 @@ func NewWind(u10, v10 float64) *wind {
  */
 func (w *wind) WindSpeed() float64 {
 	value := math.Pow(math.Pow(w.U10, 2)+math.Pow(w.V10, 2), 0.5)
-	return base.Decimal1(value)
+	return base.Decimal2(value)
 }
 
 /**
