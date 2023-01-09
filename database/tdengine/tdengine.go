@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-13 14:12:44
- * @LastEditTime: 2023-01-06 14:16:28
+ * @LastEditTime: 2023-01-09 15:31:10
  * @LastEditors: lisheng
  * @Description: Tdengine驱动
  * @FilePath: /jf-go-kit/database/tdengine/tdengine.go
@@ -9,6 +9,7 @@
 package tdengine
 
 import (
+	"context"
 	"fmt"
 	"time"
 
@@ -24,13 +25,16 @@ import (
 
 type TDengineManager struct {
 	EngineMap map[string]*zorm.DBDao
+	CtxMap    map[string]*context.Context
 }
 
 var (
 	GTDengineManager *TDengineManager = new(TDengineManager)
 )
 
-func CreateDBEngnine(user, pwd, addr string, port int) *zorm.DBDao {
+func CreateDBEngnine(user, pwd, addr string, port int) (*zorm.DBDao, *context.Context) {
+	var readCtx = context.Background()
+	var err error
 	dsn := fmt.Sprintf("%s:%s@http(%s:%d)/", user, pwd, addr, port)
 	dbDaoConfig := zorm.DataSourceConfig{
 		//DSN 数据库的连接字符串
@@ -50,23 +54,25 @@ func CreateDBEngnine(user, pwd, addr string, port int) *zorm.DBDao {
 		ConnMaxLifetimeSecond: 600,
 		DisableTransaction:    true, // 禁用全局事务
 	}
-	var err error
 	tdClient, err := zorm.NewDBDao(&dbDaoConfig)
+	readCtx, _ = tdClient.BindContextDBConnection(readCtx)
 	if err == nil {
 		base.Glog.Infof(">>> Connected to Tdengine")
 	} else {
 		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_CONNECT.Msg, err)
 	}
-	return tdClient
+	return tdClient, &readCtx
 
 }
 
 // 初始化连接
 func InitTdClient() func() error {
 	GTDengineManager.EngineMap = make(map[string]*zorm.DBDao)
+	GTDengineManager.CtxMap = make(map[string]*context.Context)
 	for k, v := range config.C.Tdengine {
-		engine := CreateDBEngnine(v.User, v.Pwd, v.Addr, v.Port)
+		engine, ctx := CreateDBEngnine(v.User, v.Pwd, v.Addr, v.Port)
 		GTDengineManager.EngineMap[k] = engine
+		GTDengineManager.CtxMap[k] = ctx
 	}
 	return func() error {
 		for k, engine := range GTDengineManager.EngineMap {

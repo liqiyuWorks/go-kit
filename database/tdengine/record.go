@@ -1,8 +1,14 @@
+/*
+ * @Author: lisheng
+ * @Date: 2022-11-23 14:06:29
+ * @LastEditTime: 2023-01-09 15:31:33
+ * @LastEditors: lisheng
+ * @Description:
+ * @FilePath: /jf-go-kit/database/tdengine/record.go
+ */
 package tdengine
 
 import (
-	"context"
-
 	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
 	"gitee.com/liqiyuworks/jf-go-kit/base"
@@ -17,26 +23,35 @@ import (
  * @return {*}
  * @author: liqiyuWorks
  */
-func RestInsertRecordPtr(exeSql string, objPtr interface{}) {
+func RestInsertRecordPtr(engineName, exeSql string, objPtr interface{}) {
+	if engineName == "" {
+		engineName = "default"
+	}
+	ctx := GTDengineManager.CtxMap[engineName]
 	finder := zorm.NewFinder()
 	finder.Append(exeSql)
-	err := zorm.Query(context.Background(), finder, objPtr, nil)
+	err := zorm.Query(*ctx, finder, objPtr, nil)
 	if err != nil {
 		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_INSERT_RECORD.Msg, err)
 	}
 }
 
 /**
- * @description: R - TD查询返回数组结构体
+ * @description: RestFindRecordsPtr
+ * @param {*} engineName
  * @param {string} exeSql
  * @param {interface{}} objPtr
  * @return {*}
  * @author: liqiyuWorks
  */
-func RestFindRecordsPtr(exeSql string, objPtr interface{}) error {
+func RestFindRecordsPtr(engineName, exeSql string, objPtr interface{}) error {
+	if engineName == "" {
+		engineName = "default"
+	}
+	ctx := GTDengineManager.CtxMap[engineName]
 	finder := zorm.NewFinder()
 	finder.Append(exeSql)
-	err := zorm.Query(context.Background(), finder, objPtr, nil)
+	err := zorm.Query(*ctx, finder, objPtr, nil)
 	if err != nil {
 		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_FIND_RECORDS.Msg, err)
 	}
@@ -50,10 +65,14 @@ func RestFindRecordsPtr(exeSql string, objPtr interface{}) error {
  * @return {*}
  * @author: liqiyuWorks
  */
-func RestUpdateRecordPtr(exeSql string, objPtr interface{}) error {
+func RestUpdateRecordPtr(engineName, exeSql string, objPtr interface{}) error {
+	if engineName == "" {
+		engineName = "default"
+	}
+	ctx := GTDengineManager.CtxMap[engineName]
 	finder := zorm.NewFinder()
 	finder.Append(exeSql)
-	err := zorm.Query(context.Background(), finder, objPtr, nil)
+	err := zorm.Query(*ctx, finder, objPtr, nil)
 	if err != nil {
 		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_UPDATE_RECORD.Msg, err)
 	}
@@ -67,10 +86,14 @@ func RestUpdateRecordPtr(exeSql string, objPtr interface{}) error {
  * @return {*}
  * @author: liqiyuWorks
  */
-func RestDeleteRecordPtr(exeSql string, objPtr interface{}) error {
+func RestDeleteRecordPtr(engineName, exeSql string, objPtr interface{}) error {
+	if engineName == "" {
+		engineName = "default"
+	}
+	ctx := GTDengineManager.CtxMap[engineName]
 	finder := zorm.NewFinder()
 	finder.Append(exeSql)
-	err := zorm.Query(context.Background(), finder, objPtr, nil)
+	err := zorm.Query(*ctx, finder, objPtr, nil)
 	if err != nil {
 		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_DELETE_RECORD.Msg, err)
 	}
