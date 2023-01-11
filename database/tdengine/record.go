@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:06:29
- * @LastEditTime: 2023-01-09 15:31:33
+ * @LastEditTime: 2023-01-11 11:11:08
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/database/tdengine/record.go
@@ -98,4 +98,25 @@ func RestDeleteRecordPtr(engineName, exeSql string, objPtr interface{}) error {
 		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_DELETE_RECORD.Msg, err)
 	}
 	return err
+}
+
+/**
+ * @description: RestFindRecordsMap
+ * @param {*} engineName
+ * @param {string} exeSql
+ * @return {*} 返回map
+ * @author: liqiyuWorks
+ */
+func RestFindRecordsMap(engineName, exeSql string) ([]map[string]interface{}, error) {
+	if engineName == "" {
+		engineName = "default"
+	}
+	ctx := GTDengineManager.CtxMap[engineName]
+	finder := zorm.NewFinder()
+	finder.Append(exeSql)
+	reMaps, err := zorm.QueryMap(*ctx, finder, nil)
+	if err != nil {
+		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_FIND_RECORDS.Msg, err)
+	}
+	return reMaps, err
 }
