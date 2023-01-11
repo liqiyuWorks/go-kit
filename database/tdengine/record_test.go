@@ -1,9 +1,12 @@
 package tdengine
 
 import (
+	"fmt"
+	"strings"
 	"testing"
 	"time"
 
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 	"gitee.com/liqiyuworks/jf-go-kit/config"
 )
 
@@ -53,4 +56,31 @@ func TestRestQuerySmocPtr(t *testing.T) {
 	for _, v := range obj {
 		t.Logf("time=%v, lat=%v, lon=%v, seawateru=%v", v.Ts, v.Lat, v.Lon, v.Seawateru)
 	}
+}
+
+func TestRestQueryTDMaps(t *testing.T) {
+	defer InitTdengine()()
+	exeSql := "show databases"
+	reMaps, _ := RestFindRecordsMap("", exeSql)
+	var mfwamForeDate, smocForeDate int64 = 0, 0
+	for k := range reMaps {
+		name := base.ConvertToString(reMaps[k]["name"], "")
+		splitNameList := strings.Split(name, "_")
+		if len(splitNameList) >= 4 {
+			// 此时进行对比
+			if splitNameList[1] == "mfwam" {
+				newDate := base.ConvertToInt64(splitNameList[3], 0)
+				if mfwamForeDate <= newDate {
+					mfwamForeDate = base.ConvertToInt64(splitNameList[3], 0)
+				}
+
+			} else if splitNameList[1] == "smoc" {
+				newDate := base.ConvertToInt64(splitNameList[3], 0)
+				if mfwamForeDate <= newDate {
+					smocForeDate = base.ConvertToInt64(splitNameList[3], 0)
+				}
+			}
+		}
+	}
+	fmt.Printf("mfwamForeDate=%d, smocForeDate=%d,", mfwamForeDate, smocForeDate)
 }

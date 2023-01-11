@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:06:29
- * @LastEditTime: 2023-01-11 11:11:08
+ * @LastEditTime: 2023-01-11 13:12:48
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/database/tdengine/record.go
@@ -115,6 +115,20 @@ func RestFindRecordsMap(engineName, exeSql string) ([]map[string]interface{}, er
 	finder := zorm.NewFinder()
 	finder.Append(exeSql)
 	reMaps, err := zorm.QueryMap(*ctx, finder, nil)
+	if err != nil {
+		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_FIND_RECORDS.Msg, err)
+	}
+	return reMaps, err
+}
+
+func RestFindSingeRecordMap(engineName, exeSql string) (map[string]interface{}, error) {
+	if engineName == "" {
+		engineName = "default"
+	}
+	ctx := GTDengineManager.CtxMap[engineName]
+	finder := zorm.NewFinder()
+	finder.Append(exeSql)
+	reMaps, err := zorm.QueryRowMap(*ctx, finder)
 	if err != nil {
 		base.Glog.Errorf("%s: %v", statuscode.ERROR_TDENGINE_FIND_RECORDS.Msg, err)
 	}
