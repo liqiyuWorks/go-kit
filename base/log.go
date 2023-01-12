@@ -60,7 +60,7 @@ func CreateLogFile() {
 		defer func() {
 			// 2.关闭文件
 			file.Close()
-			Glog.Infoln(">>> create run.log ok and close!")
+			// Glog.Infoln(">>> create run.log ok and close!")
 		}()
 	}
 }

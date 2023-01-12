@@ -2,6 +2,7 @@ package tdengine
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 	"testing"
 	"time"
@@ -58,11 +59,29 @@ func TestRestQuerySmocPtr(t *testing.T) {
 	}
 }
 
+type TestIntList []int64
+
+//元素个数
+func (t TestIntList) Len() int {
+	return len(t)
+}
+
+//比较结果
+func (t TestIntList) Less(i, j int) bool {
+	return t[i] < t[j]
+}
+
+//交换方式
+func (t TestIntList) Swap(i, j int) {
+	t[i], t[j] = t[j], t[i]
+}
+
 func TestRestQueryTDMaps(t *testing.T) {
 	defer InitTdengine()()
 	exeSql := "show databases"
 	reMaps, _ := RestFindRecordsMap("", exeSql)
-	var mfwamForeDate, smocForeDate int64 = 0, 0
+	// var mfwamForeDate, smocForeDate int64 = 0, 0
+	var mfwamlist, smocList []int64
 	for k := range reMaps {
 		name := base.ConvertToString(reMaps[k]["name"], "")
 		splitNameList := strings.Split(name, "_")
@@ -70,17 +89,17 @@ func TestRestQueryTDMaps(t *testing.T) {
 			// 此时进行对比
 			if splitNameList[1] == "mfwam" {
 				newDate := base.ConvertToInt64(splitNameList[3], 0)
-				if mfwamForeDate <= newDate {
-					mfwamForeDate = base.ConvertToInt64(splitNameList[3], 0)
-				}
+				mfwamlist = append(mfwamlist, newDate)
 
 			} else if splitNameList[1] == "smoc" {
 				newDate := base.ConvertToInt64(splitNameList[3], 0)
-				if mfwamForeDate <= newDate {
-					smocForeDate = base.ConvertToInt64(splitNameList[3], 0)
-				}
+				smocList = append(smocList, newDate)
 			}
 		}
 	}
-	fmt.Printf("mfwamForeDate=%d, smocForeDate=%d,", mfwamForeDate, smocForeDate)
+
+	fmt.Printf("mfwamlist=%d, smocList=%d \n ", mfwamlist, smocList)
+	sort.Sort(TestIntList(mfwamlist))
+	sort.Sort(TestIntList(smocList))
+	fmt.Printf("sorted => mfwamlist=%d, smocList=%d \n ", mfwamlist, smocList)
 }
