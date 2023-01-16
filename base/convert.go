@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:14:13
- * @LastEditTime: 2022-12-15 15:19:02
+ * @LastEditTime: 2023-01-16 11:21:29
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
  * @FilePath: /jf-go-kit/base/convert.go
@@ -50,7 +50,7 @@ func ConvertToInt64(i interface{}, defaultValue int64) (ret int64) {
 	defer func() {
 		if r := recover(); r != nil {
 			// 转换出错，设置默认值
-			Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
+			// Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
 			ret = defaultValue
 		}
 	}()
@@ -62,7 +62,7 @@ func ConvertToInt64(i interface{}, defaultValue int64) (ret int64) {
 		strValue := v.String()
 		ret, err := strconv.ParseInt(strValue, 10, 64)
 		if err != nil {
-			Glog.Errorf("Convert \"%s\" to %T failed[%v]", strValue, ret, err)
+			// Glog.Errorf("Convert \"%s\" to %T failed[%v]", strValue, ret, err)
 			ret = defaultValue
 		}
 
@@ -85,7 +85,7 @@ func ConvertToFloat64(i interface{}, defaultValue float64) (ret float64) {
 	defer func() {
 		if r := recover(); r != nil {
 			// 转换出错，设置默认值
-			Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
+			// Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
 			ret = defaultValue
 		}
 	}()
@@ -97,7 +97,7 @@ func ConvertToFloat64(i interface{}, defaultValue float64) (ret float64) {
 		strValue := v.String()
 		ret, err := strconv.ParseFloat(strValue, 64)
 		if err != nil {
-			Glog.Errorf("Convert \"%s\" to %T failed[%v]", strValue, ret, err)
+			// Glog.Errorf("Convert \"%s\" to %T failed[%v]", strValue, ret, err)
 			ret = defaultValue
 		}
 
@@ -143,7 +143,7 @@ func ConvertStructToMap(i interface{}, defaultValue interface{}, ret interface{}
 	defer func() {
 		if r := recover(); r != nil {
 			// 转换出错，设置默认值
-			Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
+			// Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
 			ret = defaultValue
 		}
 	}()
