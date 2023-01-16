@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:14:13
- * @LastEditTime: 2023-01-16 11:21:29
+ * @LastEditTime: 2023-01-16 15:39:32
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
  * @FilePath: /jf-go-kit/base/convert.go
@@ -29,7 +29,7 @@ func init() {
 }
 
 /**
- * @description: 转int
+ * @description: interface转int
  * @param {interface{}} i
  * @param {int} defaultValue: 0
  * @return {*}
@@ -40,7 +40,7 @@ func ConvertToInt(i interface{}, defaultValue int) int {
 }
 
 /**
- * @description: 转int64
+ * @description: interface转int64
  * @param {interface{}} i
  * @param {int64} defaultValue:0
  * @return {*}
@@ -75,7 +75,7 @@ func ConvertToInt64(i interface{}, defaultValue int64) (ret int64) {
 }
 
 /**
- * @description: 转float64
+ * @description: interface转float64
  * @param {interface{}} i
  * @param {float64} defaultValue:0
  * @return {*}
@@ -110,7 +110,7 @@ func ConvertToFloat64(i interface{}, defaultValue float64) (ret float64) {
 }
 
 /**
- * @description: 转string
+ * @description: interface转string
  * @param {interface{}} i
  * @param {string} defaultValue: ""
  * @return {*}
@@ -120,7 +120,7 @@ func ConvertToString(i interface{}, defaultValue string) (ret string) {
 	defer func() {
 		if r := recover(); r != nil {
 			// 转换出错，设置默认值
-			Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
+			// Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
 			ret = defaultValue
 		}
 	}()
@@ -178,7 +178,7 @@ func ConvertCamelToCase(name string) string {
 }
 
 /**
- * @description: ConvertCamelToSlash
+ * @description: 把骆驼变成斜杠
  * @param {string} name
  * @return {*}
  * @author: liqiyuWorks
@@ -220,7 +220,6 @@ func ConvertStringToByte(s string) []byte {
 	tmp1 := (*[2]uintptr)(unsafe.Pointer(&s))
 	tmp2 := [3]uintptr{tmp1[0], tmp1[1], tmp1[1]}
 	return *(*[]byte)(unsafe.Pointer(&tmp2))
-
 }
 
 /**
@@ -231,5 +230,4 @@ func ConvertStringToByte(s string) []byte {
  */
 func ConvertByteToString(bytes []byte) string {
 	return *(*string)(unsafe.Pointer(&bytes))
-
 }
