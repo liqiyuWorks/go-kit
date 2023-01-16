@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2023-01-16 10:24:18
- * @LastEditTime: 2023-01-16 10:53:12
+ * @LastEditTime: 2023-01-16 11:14:49
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/common/weather/weather_calc.go
+ * @FilePath: /jf-go-kit/common/weather_calc/weather_calc.go
  */
 package weathercalc
 
