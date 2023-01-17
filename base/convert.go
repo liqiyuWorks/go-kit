@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:14:13
- * @LastEditTime: 2023-01-16 15:39:32
+ * @LastEditTime: 2023-01-17 15:16:59
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
  * @FilePath: /jf-go-kit/base/convert.go
@@ -154,6 +154,29 @@ func ConvertStructToMap(i interface{}, defaultValue interface{}, ret interface{}
 		d.UseNumber()
 		d.Decode(&ret)
 	}
+}
+
+/**
+ * @description: ConvertMapToJson
+ * @param {map[string]interface{}} mapData
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func ConvertMapToJson(mapData map[string]interface{}) string {
+	bytes, _ := json.Marshal(mapData)
+	stringData := string(bytes)
+	return stringData
+}
+
+/**
+ * @description: ConvertJsonToMap
+ * @param {string} stringData
+ * @param {*map[string]interface{}} mapData
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func ConvertJsonToMap(stringData string, mapData *map[string]interface{}) {
+	json.Unmarshal([]byte(stringData), &mapData)
 }
 
 /**
