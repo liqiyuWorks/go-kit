@@ -1,10 +1,10 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-11 14:56:11
- * @LastEditTime: 2022-11-20 00:12:35
+ * @LastEditTime: 2023-02-07 13:35:07
  * @LastEditors: lisheng
  * @Description: 读取配置
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/config/config.go
+ * @FilePath: /jf-go-kit/config/config.go
  */
 package config
 
@@ -67,7 +67,8 @@ type tdengine struct {
 
 type Config struct {
 	flag.Options
-	Log struct {
+	Usingtd string `json:"usingtd"`
+	Log     struct {
 		Level string `mapstructure:"level"`
 		Path  string `mapstructure:"path"`
 		Name  string `mapstructure:"name"`
