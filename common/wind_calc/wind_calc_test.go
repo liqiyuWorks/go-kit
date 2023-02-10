@@ -3,7 +3,7 @@ package windcalc
 import (
 	"testing"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 )
 
 // 功能测试

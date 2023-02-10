@@ -3,7 +3,7 @@ package rabbitmq
 import (
 	"testing"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/config"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 )
 
 func InitRecord() func() error {

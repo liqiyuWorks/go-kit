@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/config"
-	"gitee.com/wuxi_jiufang/jf-go-kit/database/redis"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/jf-go-kit/database/redis"
 )
 
 func InitPoint() func() error {
