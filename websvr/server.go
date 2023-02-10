@@ -18,16 +18,16 @@ import (
 	"syscall"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/database/clickhouse"
-	"gitee.com/liqiyuworks/jf-go-kit/database/mongo"
-	"gitee.com/liqiyuworks/jf-go-kit/database/mysql"
-	"gitee.com/liqiyuworks/jf-go-kit/database/pg"
-	"gitee.com/liqiyuworks/jf-go-kit/database/redis"
-	"gitee.com/liqiyuworks/jf-go-kit/database/tdengine"
+	"gitee.com/wuxi_jiufang/jf-go-kit/database/clickhouse"
+	"gitee.com/wuxi_jiufang/jf-go-kit/database/mongo"
+	"gitee.com/wuxi_jiufang/jf-go-kit/database/mysql"
+	"gitee.com/wuxi_jiufang/jf-go-kit/database/pg"
+	"gitee.com/wuxi_jiufang/jf-go-kit/database/redis"
+	"gitee.com/wuxi_jiufang/jf-go-kit/database/tdengine"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/wuxi_jiufang/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 
 	"github.com/gin-gonic/gin"
 )

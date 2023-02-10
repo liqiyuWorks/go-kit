@@ -3,9 +3,9 @@ package redis
 import (
 	"testing"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/wuxi_jiufang/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 )
 
 func InitStringRds() func() error {

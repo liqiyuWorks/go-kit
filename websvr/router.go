@@ -13,9 +13,9 @@ import (
 	"reflect"
 	"strings"
 
-	"gitee.com/liqiyuworks/jf-go-kit/middleware"
+	"gitee.com/wuxi_jiufang/jf-go-kit/middleware"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"

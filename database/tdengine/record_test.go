@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/config"
 )
 
 type TDMfwam struct {

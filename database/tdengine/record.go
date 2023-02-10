@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-11-23 14:06:29
- * @LastEditTime: 2023-01-11 13:12:48
+ * @LastEditTime: 2023-02-10 22:29:56
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/database/tdengine/record.go
@@ -9,9 +9,9 @@
 package tdengine
 
 import (
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/wuxi_jiufang/jf-go-kit/common/statuscode"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 
 	"gitee.com/chunanyong/zorm"
 )

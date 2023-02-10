@@ -11,7 +11,7 @@ package currentcalc
 import (
 	"math"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 )
 
 type wind struct {

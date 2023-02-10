@@ -4,12 +4,12 @@
  * @LastEditTime: 2022-11-20 08:56:29
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/database/rabbitmq/record.go
+ * @FilePath: /gitee.com/wuxi_jiufang/jf-go-kit/database/rabbitmq/record.go
  */
 package rabbitmq
 
 import (
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 
 	"github.com/streadway/amqp"
 )

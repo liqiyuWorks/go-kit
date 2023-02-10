@@ -14,11 +14,11 @@ import (
 	"os"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/wuxi_jiufang/jf-go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/wuxi_jiufang/jf-go-kit/common/statuscode"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

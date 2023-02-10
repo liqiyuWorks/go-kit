@@ -3,10 +3,10 @@ package redis
 import (
 	"context"
 
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/wuxi_jiufang/jf-go-kit/common/statuscode"
 	"github.com/go-redis/redis/v8"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/wuxi_jiufang/jf-go-kit/base"
 )
 
 /**
