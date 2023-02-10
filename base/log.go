@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-18 09:57:18
  * @LastEditors: lisheng
  * @Description: 日志模块
- * @FilePath: /gitee.com/wuxi_jiufang/jf-go-kit/base/log.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/log.go
  */
 package base
 
@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/config"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 
 	"io"
 	"os"

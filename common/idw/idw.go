@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-10-28 15:38:12
  * @LastEditors: lisheng
  * @Description: 反距离权重计算模块
- * @FilePath: /gitee.com/wuxi_jiufang/jf-go-kit/common/idw.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/common/idw.go
  */
 package idw
 

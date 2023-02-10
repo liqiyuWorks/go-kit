@@ -13,11 +13,11 @@ import (
 	"fmt"
 	"time"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/config"
+	"gitee.com/liqiyuworks/jf-go-kit/config"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/common/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 
 	"github.com/go-redis/redis/v8"
 )

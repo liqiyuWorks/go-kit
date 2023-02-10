@@ -11,9 +11,9 @@ package redis
 import (
 	"context"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/common/statuscode"
+	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 )
 
 /**

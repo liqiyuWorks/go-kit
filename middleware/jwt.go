@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-10-21 16:19:26
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /gitee.com/wuxi_jiufang/jf-go-kit/middleware/jwt.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/middleware/jwt.go
  */
 package middleware
 

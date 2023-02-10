@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-10-29 11:47:17
  * @LastEditors: lisheng
  * @Description: 合并各种类型模块
- * @FilePath: /gitee.com/wuxi_jiufang/jf-go-kit/base/merge.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/merge.go
  */
 package base
 

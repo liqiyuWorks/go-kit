@@ -1,4 +1,4 @@
-module gitee.com/wuxi_jiufang/jf-go-kit
+module gitee.com/liqiyuworks/jf-go-kit
 
 go 1.18
 

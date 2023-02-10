@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-02 11:08:10
  * @LastEditors: lisheng
  * @Description: 通用中间件
- * @FilePath: /gitee.com/wuxi_jiufang/jf-go-kit/middleware/middleware.go
+ * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/middleware/middleware.go
  */
 package middleware
 
@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"time"
 
-	"gitee.com/wuxi_jiufang/jf-go-kit/base"
+	"gitee.com/liqiyuworks/jf-go-kit/base"
 
 	"github.com/gin-gonic/gin"
 )
