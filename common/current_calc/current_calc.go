@@ -124,7 +124,7 @@ func (w *wind) CurrentKnots(speed float64) float64 {
 	return base.Decimal2(knots)
 }
 
-func (w *wind) CurrentFactor(azimuth int, knots, angle float64) float64 {
+func (w *wind) CurrentFactor(azimuth float64, knots, angle float64) float64 {
 	var theta float64
 	var factor float64
 	if azimuth != 0 {

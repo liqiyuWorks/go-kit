@@ -10,7 +10,7 @@ import (
 func TestNewCurrent(t *testing.T) {
 	u := 0.4404
 	v := 0.1136
-	azimuth := 20
+	azimuth := 20.0
 
 	current := NewCurrent(u, v)
 	angle := current.CurrentAngle()
