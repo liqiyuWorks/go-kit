@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2023-01-16 16:38:45
- * @LastEditTime: 2023-02-24 14:45:17
+ * @LastEditTime: 2023-02-24 17:19:14
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/base/sort.go
@@ -19,8 +19,12 @@ import (
  * @return {*}
  * @author: liqiyuWorks
  */
-func SortSlice[T constraints.Ordered](s []T) {
+func SortSlice[T constraints.Ordered](s []T, reverse bool) {
 	sort.Slice(s, func(i, j int) bool {
-		return s[i] < s[j]
+		if reverse {
+			return s[i] > s[j]
+		} else {
+			return s[i] < s[j]
+		}
 	})
 }
