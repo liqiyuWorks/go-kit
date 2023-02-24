@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2023-01-16 16:38:45
- * @LastEditTime: 2023-02-24 17:19:14
+ * @LastEditTime: 2023-02-24 17:22:42
  * @LastEditors: lisheng
  * @Description:
  * @FilePath: /jf-go-kit/base/sort.go
@@ -15,7 +15,7 @@ import (
 )
 
 /**
- * @description: 切片排序（支持多种类型船体）
+ * @description: 切片的排序，可逆序
  * @return {*}
  * @author: liqiyuWorks
  */
