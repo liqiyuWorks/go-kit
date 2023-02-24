@@ -1,30 +1,26 @@
+/*
+ * @Author: lisheng
+ * @Date: 2023-01-16 16:38:45
+ * @LastEditTime: 2023-02-24 14:45:17
+ * @LastEditors: lisheng
+ * @Description:
+ * @FilePath: /jf-go-kit/base/sort.go
+ */
 package base
 
-import "sort"
+import (
+	"sort"
 
-type SortIntType []interface{}
+	"golang.org/x/exp/constraints"
+)
 
-//元素个数
-func (t SortIntType) Len() int {
-	return len(t)
-}
-
-//比较结果
-func (t SortIntType) Less(i, j int) bool {
-	// return t[i] < t[j]
-	return true
-}
-
-//交换方式
-func (t SortIntType) Swap(i, j int) {
-	t[i], t[j] = t[j], t[i]
-}
-
-func SortIntList(sortList SortIntType, reverse bool) SortIntType {
-	if reverse {
-		sort.Sort(sort.Reverse(sortList))
-	} else {
-		sort.Sort(sortList)
-	}
-	return sortList
+/**
+ * @description: 切片排序（支持多种类型船体）
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func SortSlice[T constraints.Ordered](s []T) {
+	sort.Slice(s, func(i, j int) bool {
+		return s[i] < s[j]
+	})
 }
