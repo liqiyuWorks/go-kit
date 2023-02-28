@@ -32,6 +32,5 @@ func TestConvertJsonToMap(t *testing.T) {
 
 func TestConvertToString(t *testing.T) {
 	n := int64(12132342)
-	fmt.Println(ConvertToString(n, ""))
-
+	fmt.Println(ConvertInt64ToString(n, ""))
 }

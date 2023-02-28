@@ -1,7 +1,7 @@
 /*
  * @Author: lisheng
  * @Date: 2022-10-29 11:14:13
- * @LastEditTime: 2023-02-28 18:56:40
+ * @LastEditTime: 2023-02-28 19:25:25
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
  * @FilePath: /jf-go-kit/base/convert.go
@@ -11,7 +11,6 @@ package base
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"reflect"
 	"strconv"
 	"strings"
@@ -22,6 +21,10 @@ import (
 var i64Type reflect.Type
 var f64Type reflect.Type
 var strType reflect.Type
+
+type MyInt interface {
+	int | int8 | int16 | int32 | int64
+}
 
 func init() {
 	i64Type = reflect.TypeOf(int64(0))
@@ -126,11 +129,29 @@ func ConvertToString(i interface{}, defaultValue string) (ret string) {
 		}
 	}()
 
-	// v := reflect.ValueOf(i)
-	// strValue := v.Convert(strType)
-	// strValue = strconv.Itoa()
-	ret = fmt.Sprintf("%v", i)
-	// ret = strValue.String()
+	v := reflect.ValueOf(i)
+	strValue := v.Convert(strType)
+	ret = strValue.String()
+	return ret
+}
+
+/**
+ * @description: ConvertInt64ToString
+ * @param {int64} i
+ * @param {string} defaultValue
+ * @return {*}
+ * @author: liqiyuWorks
+ */
+func ConvertInt64ToString(i int64, defaultValue string) (ret string) {
+	defer func() {
+		if r := recover(); r != nil {
+			// 转换出错，设置默认值
+			// Glog.Errorf("Convert %v to %T failed[%v]", i, ret, r)
+			ret = defaultValue
+		}
+	}()
+
+	ret = strconv.FormatInt(i, 10)
 	return ret
 }
 
