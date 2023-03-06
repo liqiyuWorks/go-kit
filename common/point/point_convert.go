@@ -3,7 +3,7 @@ package point
 import (
 	"fmt"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 )
 
 type Point struct {

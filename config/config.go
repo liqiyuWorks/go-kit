@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-02-07 13:35:07
  * @LastEditors: lisheng
  * @Description: 读取配置
- * @FilePath: /jf-go-kit/config/config.go
+ * @FilePath: /go-kit/config/config.go
  */
 package config
 

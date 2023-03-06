@@ -4,14 +4,14 @@
  * @LastEditTime: 2023-01-09 12:37:10
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/common/wind_calc/wind_calc.go
+ * @FilePath: /go-kit/common/wind_calc/wind_calc.go
  */
 package windcalc
 
 import (
 	"math"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 )
 
 type wind struct {

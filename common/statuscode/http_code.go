@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-01-06 11:07:08
  * @LastEditors: lisheng
  * @Description: http状态码
- * @FilePath: /jf-go-kit/base/statuscode/http_code.go
+ * @FilePath: /go-kit/base/statuscode/http_code.go
  */
 package statuscode
 

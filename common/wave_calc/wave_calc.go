@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-12-07 15:55:33
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/common/wave_calc/wave_calc.go
+ * @FilePath: /go-kit/common/wave_calc/wave_calc.go
  */
 package wavecalc
 

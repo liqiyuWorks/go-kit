@@ -1,9 +1,9 @@
 package mysql
 
 import (
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	"testing"
 )

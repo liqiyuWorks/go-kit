@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-12-15 11:29:34
  * @LastEditors: lisheng
  * @Description: web服务
- * @FilePath: /jf-go-kit/websvr/server.go
+ * @FilePath: /go-kit/websvr/server.go
  */
 
 package websvr
@@ -18,16 +18,16 @@ import (
 	"syscall"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/database/clickhouse"
-	"gitee.com/liqiyuworks/jf-go-kit/database/mongo"
-	"gitee.com/liqiyuworks/jf-go-kit/database/mysql"
-	"gitee.com/liqiyuworks/jf-go-kit/database/pg"
-	"gitee.com/liqiyuworks/jf-go-kit/database/redis"
-	"gitee.com/liqiyuworks/jf-go-kit/database/tdengine"
+	"gitee.com/liqiyuworks/go-kit/database/clickhouse"
+	"gitee.com/liqiyuworks/go-kit/database/mongo"
+	"gitee.com/liqiyuworks/go-kit/database/mysql"
+	"gitee.com/liqiyuworks/go-kit/database/pg"
+	"gitee.com/liqiyuworks/go-kit/database/redis"
+	"gitee.com/liqiyuworks/go-kit/database/tdengine"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	"github.com/gin-gonic/gin"
 )

@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-01-09 15:31:10
  * @LastEditors: lisheng
  * @Description: Tdengine驱动
- * @FilePath: /jf-go-kit/database/tdengine/tdengine.go
+ * @FilePath: /go-kit/database/tdengine/tdengine.go
  */
 package tdengine
 
@@ -13,11 +13,11 @@ import (
 	"fmt"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/liqiyuworks/go-kit/common/statuscode"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	"gitee.com/chunanyong/zorm"
 	_ "github.com/taosdata/driver-go/v3/taosRestful"

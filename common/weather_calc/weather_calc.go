@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-01-16 11:14:49
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/common/weather_calc/weather_calc.go
+ * @FilePath: /go-kit/common/weather_calc/weather_calc.go
  */
 package weathercalc
 

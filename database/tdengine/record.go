@@ -4,14 +4,14 @@
  * @LastEditTime: 2023-02-10 22:29:56
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/database/tdengine/record.go
+ * @FilePath: /go-kit/database/tdengine/record.go
  */
 package tdengine
 
 import (
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/liqiyuworks/go-kit/common/statuscode"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	"gitee.com/chunanyong/zorm"
 )

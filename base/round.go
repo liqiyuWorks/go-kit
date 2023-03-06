@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-10-29 11:58:45
  * @LastEditors: lisheng
  * @Description: 保留小数的精度
- * @FilePath: /gitee.com/liqiyuworks/jf-go-kit/base/round.go
+ * @FilePath: /gitee.com/liqiyuworks/go-kit/base/round.go
  */
 package base
 

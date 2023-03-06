@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-02-24 17:22:42
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/base/sort.go
+ * @FilePath: /go-kit/base/sort.go
  */
 package base
 

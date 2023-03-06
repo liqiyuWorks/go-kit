@@ -4,14 +4,14 @@
  * @LastEditTime: 2023-01-09 13:00:56
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/common/current_calc/current_calc.go
+ * @FilePath: /go-kit/common/current_calc/current_calc.go
  */
 package currentcalc
 
 import (
 	"math"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 )
 
 type wind struct {

@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-12-15 15:43:21
  * @LastEditors: lisheng
  * @Description: 路由模块
- * @FilePath: /jf-go-kit/websvr/router.go
+ * @FilePath: /go-kit/websvr/router.go
  */
 package websvr
 
@@ -13,9 +13,9 @@ import (
 	"reflect"
 	"strings"
 
-	"gitee.com/liqiyuworks/jf-go-kit/middleware"
+	"gitee.com/liqiyuworks/go-kit/middleware"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"

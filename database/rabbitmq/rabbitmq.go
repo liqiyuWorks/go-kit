@@ -4,18 +4,18 @@
  * @LastEditTime: 2023-01-06 14:16:15
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/database/rabbitmq/rabbitmq.go
+ * @FilePath: /go-kit/database/rabbitmq/rabbitmq.go
  */
 package rabbitmq
 
 import (
 	"fmt"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/liqiyuworks/go-kit/common/statuscode"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	"github.com/streadway/amqp"
 )

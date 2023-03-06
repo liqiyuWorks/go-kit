@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-01-06 14:16:09
  * @LastEditors: lisheng
  * @Description: mysql驱动管理，支持管理多个Mysql数据库连接
- * @FilePath: /jf-go-kit/database/mysql/mysql.go
+ * @FilePath: /go-kit/database/mysql/mysql.go
  */
 package mysql
 
@@ -14,11 +14,11 @@ import (
 	"os"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/liqiyuworks/go-kit/common/statuscode"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

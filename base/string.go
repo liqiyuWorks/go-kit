@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-12-23 17:30:20
  * @LastEditors: lisheng
  * @Description:
- * @FilePath: /jf-go-kit/base/string.go
+ * @FilePath: /go-kit/base/string.go
  */
 package base
 

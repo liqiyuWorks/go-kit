@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-01-06 14:16:12
  * @LastEditors: lisheng
  * @Description: PostareSQL驱动
- * @FilePath: /jf-go-kit/database/pg/pg.go
+ * @FilePath: /go-kit/database/pg/pg.go
  */
 package pg
 
@@ -14,11 +14,11 @@ import (
 	"os"
 	"time"
 
-	"gitee.com/liqiyuworks/jf-go-kit/config"
+	"gitee.com/liqiyuworks/go-kit/config"
 
-	"gitee.com/liqiyuworks/jf-go-kit/common/statuscode"
+	"gitee.com/liqiyuworks/go-kit/common/statuscode"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 
 	// mysql 数据库驱动
 	"gorm.io/driver/postgres"

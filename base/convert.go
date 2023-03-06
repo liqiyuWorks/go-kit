@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-02-28 19:51:19
  * @LastEditors: lisheng
  * @Description: covert A类型 To B类型
- * @FilePath: /jf-go-kit/base/convert.go
+ * @FilePath: /go-kit/base/convert.go
  */
 package base
 

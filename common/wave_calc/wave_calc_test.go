@@ -3,7 +3,7 @@ package wavecalc
 import (
 	"testing"
 
-	"gitee.com/liqiyuworks/jf-go-kit/base"
+	"gitee.com/liqiyuworks/go-kit/base"
 )
 
 // 功能测试
