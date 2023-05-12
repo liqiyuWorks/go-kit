@@ -55,6 +55,7 @@ type mongo struct {
 type redis struct {
 	Addr string `mapstructure:"addr"`
 	Pwd  string `mapstructure:"pwd"`
+	Db   int    `mapstructure:"db"`
 }
 
 type tdengine struct {

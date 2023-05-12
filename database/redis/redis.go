@@ -30,13 +30,13 @@ var (
 	GRdsManager *RdsManager = new(RdsManager)
 )
 
-func CreateDBEngnine(addr, pwd string) *redis.Client {
+func CreateDBEngnine(addr, pwd string, db int) *redis.Client {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	rdsCli := redis.NewClient(&redis.Options{
 		Addr:         addr,
 		Password:     pwd,
-		DB:           0,
+		DB:           db,
 		DialTimeout:  10 * time.Second,
 		ReadTimeout:  30 * time.Second,
 		WriteTimeout: 30 * time.Second,
@@ -66,7 +66,7 @@ func CreateDBEngnine(addr, pwd string) *redis.Client {
 func InitRedisClient() func() error {
 	GRdsManager.EngineMap = make(map[string]*redis.Client)
 	for k, v := range config.C.Redis {
-		engine := CreateDBEngnine(v.Addr, v.Pwd)
+		engine := CreateDBEngnine(v.Addr, v.Pwd, v.Db)
 		GRdsManager.EngineMap[k] = engine
 	}
 
