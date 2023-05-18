@@ -36,7 +36,8 @@ func CreateDBEngnine(user, pwd, addr string, port int) (*zorm.DBDao, *context.Co
 	var readCtx = context.Background()
 	var err error
 	var dsn string
-	if port == 0 {	// tdengine 集群部署可能存在不传port现象
+	// 更新td连接
+	if port == 0 { // tdengine 集群部署可能存在不传port现象
 		dsn = fmt.Sprintf("%s:%s@http(%s)/", user, pwd, addr)
 	} else {
 		dsn = fmt.Sprintf("%s:%s@http(%s:%d)/", user, pwd, addr, port)
