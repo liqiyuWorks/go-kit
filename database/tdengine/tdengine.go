@@ -35,7 +35,12 @@ var (
 func CreateDBEngnine(user, pwd, addr string, port int) (*zorm.DBDao, *context.Context) {
 	var readCtx = context.Background()
 	var err error
-	dsn := fmt.Sprintf("%s:%s@http(%s:%d)/", user, pwd, addr, port)
+	var dsn string
+	if port == 0 {	// tdengine 集群部署可能存在不传port现象
+		dsn = fmt.Sprintf("%s:%s@http(%s)/", user, pwd, addr)
+	} else {
+		dsn = fmt.Sprintf("%s:%s@http(%s:%d)/", user, pwd, addr, port)
+	}
 	dbDaoConfig := zorm.DataSourceConfig{
 		//DSN 数据库的连接字符串
 		DSN: dsn,
